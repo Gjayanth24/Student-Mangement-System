@@ -18,7 +18,7 @@ public class StudentContoller {
 	@Autowired
 	StudentService studentService;
 
-	@GetMapping("/students")
+	@GetMapping({"/", "/students"})
 	public String listStudents(Model model) {
 
 		// model have list of student and this display in students.html file
