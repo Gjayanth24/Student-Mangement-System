@@ -23,7 +23,7 @@ public class StudentContoller {
 
 		// model have list of student and this display in students.html file
 		model.addAttribute("students", studentService.getAllStudents());
-		return "students"; // returning view of html file
+		return "index"; // returning view of html file
 	}
 
 	@GetMapping("/students/new")
@@ -38,7 +38,7 @@ public class StudentContoller {
 	public String saveStudent(@ModelAttribute Student student) {
 
 		studentService.saveStudent(student);
-		return "redirect:/students";
+		return "redirect:/index";
 	}
 
 	@GetMapping("/students/edit/{id}")
@@ -63,7 +63,7 @@ public class StudentContoller {
 		existingStudent.setEmail(student.getEmail());
 		
 		studentService.updateStudent(existingStudent);
-		return  "redirect:/students";
+		return  "redirect:/index";
 	}
 		
 	
@@ -72,7 +72,7 @@ public class StudentContoller {
 	@GetMapping("/students/{id}")
 	public String deleteStudent(@PathVariable Long id) {
 		studentService.deleteStudentById(id);
-		return "redirect:/students";
+		return "redirect:/index";
 	}
 	
 	 
